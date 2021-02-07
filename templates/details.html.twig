@@ -1,0 +1,30 @@
+{%  extends'layout.html.twig' %}
+
+{% block content %}
+
+    <div class="breadcrumbs"><a href="/">Homepage</a> &raquo;</div>
+
+    <div class="product-details">
+            <div>
+                {% if bike.image %}
+                    <img src="/images/{{ bike.image }}" alt="{{ bike.name }}"
+                {% endif %}
+            </div>
+             <div>
+                 <h1>{{ bike.name }}</h1>
+                 <p>${{ bike.price }}</p>
+                 <form method="post">
+                     {% if inBasket %}
+                         <button disabled>In Your Basket</button>
+                     {% else %}
+                        <button>Add To Basket</button>
+                     {% endif %}
+                 </form>
+            </div>
+    </div>
+
+    {% if bike.description %}
+        <p>{{ bike.description }}</p>
+    {% endif %}
+
+{% endblock %}
